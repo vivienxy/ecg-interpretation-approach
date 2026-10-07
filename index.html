@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ECG Interpretation Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=14" />
+</head>
+<body>
+  <header class="topbar" aria-label="Main navigation">
+    <button class="brand-button" type="button" data-view-target="home" aria-label="Go to home page">
+      ECG Interpretation Guide
+    </button>
+
+    <nav class="main-nav" aria-label="Sections">
+      <button class="nav-button is-active" type="button" data-nav="home" data-view-target="home" aria-pressed="true">Home</button>
+      <div class="nav-dropdown">
+        <button class="nav-button" type="button" data-nav="steps" id="stepsMenuButton" aria-haspopup="true" aria-expanded="false" aria-controls="stepsMenu">Steps</button>
+        <div class="dropdown-menu" id="stepsMenu" role="menu" hidden>
+          <button class="dropdown-item dropdown-item-all" type="button" role="menuitem" data-view-target="steps">All Steps (flowchart)</button>
+          <button class="dropdown-item" type="button" role="menuitem" data-nav-item="rate" data-view-target="rate">Rate</button>
+          <button class="dropdown-item" type="button" role="menuitem" data-nav-item="rhythm" data-view-target="rhythm">Rhythm</button>
+          <button class="dropdown-item" type="button" role="menuitem" data-nav-item="axis" data-view-target="axis">Axis</button>
+          <button class="dropdown-item" type="button" role="menuitem" data-nav-item="intervals" data-view-target="intervals">Intervals</button>
+          <button class="dropdown-item" type="button" role="menuitem" data-nav-item="p-wave" data-view-target="p-wave">P Wave</button>
+          <button class="dropdown-item" type="button" role="menuitem" data-nav-item="qrs" data-view-target="qrs">QRS Complex</button>
+          <button class="dropdown-item" type="button" role="menuitem" data-nav-item="st-t" data-view-target="st-t">ST Segment &amp; T Wave</button>
+          <button class="dropdown-item" type="button" role="menuitem" data-nav-item="stemi" data-view-target="stemi">Localize the STEMI</button>
+        </div>
+      </div>
+      <button class="nav-button" type="button" data-nav="search" data-view-target="search" aria-pressed="false">Search</button>
+    </nav>
+  </header>
+
+  <main class="app-main">
+
+    <!-- HOME -->
+    <section class="page-view is-active" data-view="home" data-section="home" data-title="" aria-label="ECG interpretation home page">
+      <div class="landing-shell">
+        <div class="landing-heading">
+          <h1>ECG Interpretation Guide</h1>
+          <div class="placeholder-box">made by: vivien (wrc c29)</div>
+          <div class="thanks-box">
+            <p class="thanks-heading">Special thanks to:</p>
+            <ol class="thanks-list">
+              <li>
+                <strong>MF1 PBL Group 4</strong> <span class="thanks-names thanks-members"> Alan, Amelia, Frass, Percy, Sydney, Trisha, Urooj, Zahra</span>
+                <span class="thanks-note">Thank you for the trauma bonding and eye contact we make with each other during Monday PBLs, for cheering me on during the ECG Jeopardy, for all the panda crackers, and for being the best group I could ever ask for. I will miss you all ♡</span>
+              </li>
+              <li>
+                <strong>Ninja Nerd</strong> <span class="thanks-names">(for obvious reasons)</span>
+              </li>
+              <li>
+                <strong>The WRC late night crew</strong> <span class="thanks-names thanks-members"> Jackie, Angus, Amelia, Danny, Percy, Chris, Sophie</span>
+                <span class="thanks-note">Thank you for always encouraging me to take care of myself and for helping me remember what's important during my crashouts <br>(I promise, I'll be at volleyball from now on)</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <button class="category-card steps-card" type="button" data-view-target="steps">
+            <strong>Approach to ECG Interpretation</strong>
+            <span>Sequential steps to take when reading an ECG</span>
+          </button>
+
+          <div class="category-card step-link-list">
+            <strong>Jump to a Specific Step in ECG Interpretation Approach:</strong>
+            <div class="step-links">
+              <button class="step-link" type="button" data-view-target="rate">
+                <small>Step 1</small>
+                <strong>Rate</strong>
+              </button>
+              <button class="step-link" type="button" data-view-target="rhythm">
+                <small>Step 2</small>
+                <strong>Rhythm</strong>
+              </button>
+              <button class="step-link" type="button" data-view-target="axis">
+                <small>Step 3</small>
+                <strong>Axis</strong>
+              </button>
+              <button class="step-link" type="button" data-view-target="intervals">
+                <small>Step 4</small>
+                <strong>Intervals</strong>
+              </button>
+              <button class="step-link" type="button" data-view-target="p-wave">
+                <small>Step 5</small>
+                <strong>P Wave</strong>
+              </button>
+              <button class="step-link" type="button" data-view-target="qrs">
+                <small>Step 6</small>
+                <strong>QRS Complex</strong>
+              </button>
+              <button class="step-link" type="button" data-view-target="st-t">
+                <small>Step 7</small>
+                <strong>ST Segment &amp; T Wave</strong>
+              </button>
+              <button class="step-link" type="button" data-view-target="stemi">
+                <small>Step 8</small>
+                <strong>Localize the STEMI</strong>
+              </button>
+            </div>
+          </div>
+
+          <button class="category-card home-search-card" type="button" data-view-target="search">
+            <strong>Search ECG Morphologies</strong>
+            <span>Search for specific morphology (e.g., Torsades) to see the corresponding ECG features</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH -->
+    <section class="page-view" data-view="search" data-section="search" data-title="Search" aria-label="Search ECG morphologies" hidden>
+      <div class="menu-shell search-shell">
+        <div class="menu-heading">
+          <h1>Search</h1>
+        </div>
+
+        <div class="search-box" role="search">
+          <label class="sr-only" for="searchInput">Search ECG morphologies</label>
+          <input id="searchInput" class="search-input" type="search" placeholder="Search a morphology, e.g. RBBB, bifid P wave, delta wave" autocomplete="off" />
+          <div class="search-chips" aria-label="Example searches">
+            <button class="search-chip" type="button" data-search-example="RBBB">RBBB</button>
+            <button class="search-chip" type="button" data-search-example="bifid P wave">bifid P wave</button>
+            <button class="search-chip" type="button" data-search-example="atrial fibrillation">atrial fibrillation</button>
+            <button class="search-chip" type="button" data-search-example="ST depression">ST depression</button>
+            <button class="search-chip" type="button" data-search-example="torsades">torsades</button>
+            <button class="search-chip" type="button" data-search-example="inferior STEMI">inferior STEMI</button>
+          </div>
+        </div>
+
+        <p class="search-count" id="searchCount" aria-live="polite"></p>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </section>
+
+    <!-- ECG INTERPRETATION STEPS (LANDING FLOWCHART) -->
+    <section class="page-view flowchart-view" data-view="steps" data-section="steps" data-title="ECG Interpretation Steps" aria-label="Approach to ECG interpretation" hidden>
+      <div class="chart-stage chart-stage-with-footer">
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/LANDINGPAGE_general_approach_ecg.png" alt="Approach to ECG interpretation: steps 1 to 7" draggable="false" />
+
+          <button
+            class="flowchart-link-hotspot"
+            style="--x:1.56%; --y:31.88%; --w:96.32%; --h:9.13%; --border-color:#e6b980; --border-hover:#c9954f;"
+            data-view-target="rate"
+            aria-label="Go to Step 1: Rate"
+          ></button>
+
+          <button
+            class="flowchart-link-hotspot"
+            style="--x:1.56%; --y:41.01%; --w:96.32%; --h:9.13%; --border-color:#e6b980; --border-hover:#c9954f;"
+            data-view-target="rhythm"
+            aria-label="Go to Step 2: Rhythm"
+          ></button>
+
+          <button
+            class="flowchart-link-hotspot"
+            style="--x:1.56%; --y:50.14%; --w:96.32%; --h:9.26%; --border-color:#e6b980; --border-hover:#c9954f;"
+            data-view-target="axis"
+            aria-label="Go to Step 3: Axis"
+          ></button>
+
+          <button
+            class="flowchart-link-hotspot"
+            style="--x:1.56%; --y:59.40%; --w:96.32%; --h:9.67%; --border-color:#e6b980; --border-hover:#c9954f;"
+            data-view-target="intervals"
+            aria-label="Go to Step 4: Intervals"
+          ></button>
+
+          <button
+            class="flowchart-link-hotspot"
+            style="--x:1.56%; --y:69.07%; --w:96.32%; --h:9.13%; --border-color:#e8a0a0; --border-hover:#c97070;"
+            data-view-target="p-wave"
+            aria-label="Go to Step 5: P Wave"
+          ></button>
+
+          <button
+            class="flowchart-link-hotspot"
+            style="--x:1.56%; --y:78.20%; --w:96.32%; --h:9.26%; --border-color:#e8a0a0; --border-hover:#c97070;"
+            data-view-target="qrs"
+            aria-label="Go to Step 6: QRS Complex"
+          ></button>
+
+          <button
+            class="flowchart-link-hotspot"
+            style="--x:1.56%; --y:87.47%; --w:96.32%; --h:9.13%; --border-color:#ffffff; --border-hover:#f4cccc;"
+            data-view-target="st-t"
+            aria-label="Go to Step 7: ST Segment &amp; T Wave"
+          ></button>
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="home">← Home</button>
+          <button class="footer-secondary" type="button" data-view-target="stemi">Step 8: Localize the STEMI →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RATE CALCULATION -->
+    <section class="page-view flowchart-view" data-view="rate" data-section="rate" data-title="Rate Calculation" aria-label="Rate Calculation" hidden>
+      <div class="chart-stage chart-stage-with-footer chart-stage-with-actions">
+        <div class="chart-top-actions">
+          <button class="footer-secondary is-current" type="button" data-view-target="rate" aria-current="page">Rate Calculation</button>
+          <button class="footer-secondary" type="button" data-view-target="rate-ranges">Rates</button>
+        </div>
+
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP1_rate_calculation.png" alt="How to determine heart rate: R waves x 6, or 300 / number of large boxes" draggable="false" />
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="rhythm">Rhythm →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RATES -->
+    <section class="page-view flowchart-view" data-view="rate-ranges" data-section="rate" data-title="Rates" aria-label="Rates" hidden>
+      <div class="chart-stage chart-stage-with-footer chart-stage-with-actions">
+        <div class="chart-top-actions">
+          <button class="footer-secondary" type="button" data-view-target="rate">Rate Calculation</button>
+          <button class="footer-secondary is-current" type="button" data-view-target="rate-ranges" aria-current="page">Rates</button>
+        </div>
+
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP1_rates.png" alt="Heart rate ranges: tachycardia over 100, normal 60 to 100, bradycardia under 60 bpm" draggable="false" />
+
+          <button
+            class="flowchart-link-hotspot"
+            style="--x:33.06%; --y:23.06%; --w:34.55%; --h:6.01%; --border-color:#e8a0a0; --border-hover:#c97070;"
+            data-view-target="rhythm-tachy"
+            aria-label="Go to Approach to Tachycardic Rhythm"
+          ></button>
+
+          <button
+            class="flowchart-link-hotspot"
+            style="--x:33.06%; --y:29.07%; --w:34.55%; --h:6.10%; --border-color:#9fd3c0; --border-hover:#6fb39a;"
+            data-view-target="rhythm"
+            aria-label="Go to Rhythm"
+          ></button>
+
+          <button
+            class="flowchart-link-hotspot"
+            style="--x:33.06%; --y:35.17%; --w:34.55%; --h:6.01%; --border-color:#9fbfe8; --border-hover:#6f97c9;"
+            data-view-target="rhythm-brady"
+            aria-label="Go to Approach to Bradycardic Rhythm"
+          ></button>
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="rhythm">Rhythm →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RHYTHM (picker) -->
+    <section class="page-view" data-view="rhythm" data-section="rhythm" data-title="Rhythm" aria-label="Rhythm" hidden>
+      <div class="menu-shell">
+        <div class="menu-heading">
+          <h1>Rhythm</h1>
+        </div>
+
+        <div class="flowchart-card-grid">
+          <button class="flowchart-card" type="button" data-view-target="rhythm-brady">
+            <strong>Bradycardia</strong>
+            <span>Heart rate &lt; 60 bpm: sinus bradycardia and AV blocks</span>
+          </button>
+          <button class="flowchart-card" type="button" data-view-target="rhythm-tachy">
+            <strong>Tachycardia</strong>
+            <span>Heart rate &gt; 100 bpm: narrow and wide complex tachycardias</span>
+          </button>
+        </div>
+
+        <div class="chart-footer menu-footer">
+          <button class="footer-secondary" type="button" data-view-target="rate">← Rate</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="axis">Axis →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH TO BRADYCARDIC RHYTHM -->
+    <section class="page-view flowchart-view" data-view="rhythm-brady" data-section="rhythm" data-title="Approach to Bradycardic Rhythm" aria-label="Approach to Bradycardic Rhythm" hidden>
+      <div class="chart-stage chart-stage-with-footer chart-stage-with-actions">
+        <div class="chart-top-actions">
+          <button class="footer-secondary" type="button" data-view-target="rate-ranges">&larr; Rate</button>
+          <button class="footer-secondary is-current" type="button" data-view-target="rhythm-brady" aria-current="page">Bradycardia</button>
+          <button class="footer-secondary" type="button" data-view-target="rhythm-tachy">Tachycardia</button>
+        </div>
+
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP2_bradycardia.png" alt="Approach to bradycardic rhythm" draggable="false" />
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="rhythm">← Rhythm</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="axis">Axis →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH TO TACHYCARDIC RHYTHM -->
+    <section class="page-view flowchart-view" data-view="rhythm-tachy" data-section="rhythm" data-title="Approach to Tachycardic Rhythm" aria-label="Approach to Tachycardic Rhythm" hidden>
+      <div class="chart-stage chart-stage-with-footer chart-stage-with-actions">
+        <div class="chart-top-actions">
+          <button class="footer-secondary" type="button" data-view-target="rate-ranges">&larr; Rate</button>
+          <button class="footer-secondary" type="button" data-view-target="rhythm-brady">Bradycardia</button>
+          <button class="footer-secondary is-current" type="button" data-view-target="rhythm-tachy" aria-current="page">Tachycardia</button>
+        </div>
+
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP2_tachycardia_MAIN.png" alt="Approach to tachycardic rhythm" draggable="false" />
+
+          <button
+            class="hotspot"
+            style="--x:13.12%; --y:51.74%; --w:72.30%; --h:17.38%; --border-color:#e6b980; --border-hover:#c9954f;"
+            data-modal-image="assets/STEP2_tachycardia_narrow.png"
+            data-modal-title="Narrow Irregular Tachycardia"
+            aria-label="Open Narrow Irregular Tachycardia"
+          ></button>
+
+          <button
+            class="hotspot"
+            style="--x:13.12%; --y:69.12%; --w:72.30%; --h:22.86%; --border-color:#b49ad8; --border-hover:#8e6fc0;"
+            data-modal-image="assets/STEP2_tachycardia_wide.png"
+            data-modal-title="Wide Complex Tachycardia"
+            aria-label="Open Wide Complex Tachycardia"
+          ></button>
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="rhythm">← Rhythm</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="axis">Axis →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- AXIS (picker) -->
+    <section class="page-view" data-view="axis" data-section="axis" data-title="Axis" aria-label="Axis" hidden>
+      <div class="menu-shell">
+        <div class="menu-heading">
+          <h1>Axis</h1>
+        </div>
+
+        <div class="flowchart-card-grid">
+          <button class="flowchart-card" type="button" data-view-target="axis-left">
+            <strong>Left Axis Deviation</strong>
+          </button>
+          <button class="flowchart-card" type="button" data-view-target="axis-right">
+            <strong>Right Axis Deviation</strong>
+          </button>
+          <button class="flowchart-card" type="button" data-view-target="axis-extreme-right">
+            <strong>Extreme Right Axis Deviation</strong>
+          </button>
+        </div>
+
+        <div class="chart-footer menu-footer">
+          <button class="footer-secondary" type="button" data-view-target="rhythm">← Rhythm</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="intervals">Intervals →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEFT AXIS DEVIATION -->
+    <section class="page-view flowchart-view" data-view="axis-left" data-section="axis" data-title="Left Axis Deviation" aria-label="Left Axis Deviation" hidden>
+      <div class="chart-stage chart-stage-with-footer chart-stage-with-actions">
+        <div class="chart-top-actions">
+          <button class="footer-secondary is-current" type="button" data-view-target="axis-left" aria-current="page">Left Axis Deviation</button>
+          <button class="footer-secondary" type="button" data-view-target="axis-right">Right Axis Deviation</button>
+          <button class="footer-secondary" type="button" data-view-target="axis-extreme-right">Extreme Right Axis Deviation</button>
+        </div>
+
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP3_left_axis_deviation.png" alt="Left Axis Deviation" draggable="false" />
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="axis">← Axis</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="intervals">Intervals →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT AXIS DEVIATION -->
+    <section class="page-view flowchart-view" data-view="axis-right" data-section="axis" data-title="Right Axis Deviation" aria-label="Right Axis Deviation" hidden>
+      <div class="chart-stage chart-stage-with-footer chart-stage-with-actions">
+        <div class="chart-top-actions">
+          <button class="footer-secondary" type="button" data-view-target="axis-left">Left Axis Deviation</button>
+          <button class="footer-secondary is-current" type="button" data-view-target="axis-right" aria-current="page">Right Axis Deviation</button>
+          <button class="footer-secondary" type="button" data-view-target="axis-extreme-right">Extreme Right Axis Deviation</button>
+        </div>
+
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP3_right_axis_deviation.png" alt="Right Axis Deviation" draggable="false" />
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="axis">← Axis</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="intervals">Intervals →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXTREME RIGHT AXIS DEVIATION -->
+    <section class="page-view flowchart-view" data-view="axis-extreme-right" data-section="axis" data-title="Extreme Right Axis Deviation" aria-label="Extreme Right Axis Deviation" hidden>
+      <div class="chart-stage chart-stage-with-footer chart-stage-with-actions">
+        <div class="chart-top-actions">
+          <button class="footer-secondary" type="button" data-view-target="axis-left">Left Axis Deviation</button>
+          <button class="footer-secondary" type="button" data-view-target="axis-right">Right Axis Deviation</button>
+          <button class="footer-secondary is-current" type="button" data-view-target="axis-extreme-right" aria-current="page">Extreme Right Axis Deviation</button>
+        </div>
+
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP3_extreme_right_axis_deviation.png" alt="Extreme Right Axis Deviation" draggable="false" />
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="axis">← Axis</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="intervals">Intervals →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERVALS -->
+    <section class="page-view flowchart-view" data-view="intervals" data-section="intervals" data-title="Intervals" aria-label="Intervals" hidden>
+      <div class="chart-stage chart-stage-with-footer">
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP4_pr_qt_interval_MAIN.png" alt="Approach to intervals" draggable="false" />
+
+          <button
+            class="hotspot"
+            style="--x:24.18%; --y:37.03%; --w:70.29%; --h:8.44%; --border-color:#83a9d6; --border-hover:#5f8fc4;"
+            data-modal-image="assets/STEP4_long_pr_interval.png"
+            data-modal-title="Prolonged PR Interval (AV Blocks)"
+            aria-label="Open Prolonged PR Interval (AV Blocks)"
+          ></button>
+
+          <button
+            class="hotspot"
+            style="--x:24.18%; --y:45.47%; --w:70.29%; --h:8.44%; --border-color:#e8a0a0; --border-hover:#c97070;"
+            data-modal-image="assets/STEP4_short_pr_interval.png"
+            data-modal-title="Short PR Interval (WPW Syndrome)"
+            aria-label="Open Short PR Interval (WPW Syndrome)"
+          ></button>
+
+          <button
+            class="hotspot"
+            style="--x:24.18%; --y:53.90%; --w:70.29%; --h:30.73%; --border-color:#d79ad8; --border-hover:#b56fb8;"
+            data-modal-image="assets/STEP4_long_qt_interval.png"
+            data-modal-title="Prolonged QT Interval"
+            aria-label="Open Prolonged QT Interval"
+          ></button>
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="axis">← Axis</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="p-wave">P Wave →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- P WAVE -->
+    <section class="page-view flowchart-view" data-view="p-wave" data-section="p-wave" data-title="P Wave" aria-label="P Wave" hidden>
+      <div class="chart-stage chart-stage-with-footer">
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP5_p_wave_MAIN.png" alt="Approach to P waves" draggable="false" />
+
+          <button
+            class="hotspot"
+            style="--x:4.43%; --y:45.63%; --w:88.24%; --h:22.55%; --border-color:#e08a8a; --border-hover:#c06060;"
+            data-modal-image="assets/STEP5_bifid_p_wave.png"
+            data-modal-title="Bifid P Wave (Left Atrial Enlargement)"
+            aria-label="Open Bifid P Wave (Left Atrial Enlargement)"
+          ></button>
+
+          <button
+            class="hotspot"
+            style="--x:4.43%; --y:68.18%; --w:88.24%; --h:16.43%; --border-color:#83a9d6; --border-hover:#5f8fc4;"
+            data-modal-image="assets/STEP5_large_biphasic_p_wave.png"
+            data-modal-title="P Wave ≥ 2.5 mm (Right Atrial Enlargement)"
+            aria-label="Open P Wave ≥ 2.5 mm (Right Atrial Enlargement)"
+          ></button>
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="intervals">← Intervals</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="qrs">QRS Complex →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- QRS COMPLEX -->
+    <section class="page-view flowchart-view" data-view="qrs" data-section="qrs" data-title="QRS Complex" aria-label="QRS Complex" hidden>
+      <div class="chart-stage chart-stage-with-footer chart-stage-with-actions">
+        <div class="chart-top-actions">
+          <button class="popup-button" type="button" data-modal-image="assets/STEP6_qrs_lvh_rvh.png" data-modal-title="Spotting Ventricular Hypertrophy (LVH vs RVH)">LVH vs RVH Patterns</button>
+        </div>
+
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP6_qrs_complex_MAIN.png" alt="Approach to the QRS complex" draggable="false" />
+
+          <button
+            class="hotspot"
+            style="--x:4.38%; --y:37.87%; --w:88.85%; --h:17.20%; --border-color:#e08a8a; --border-hover:#c06060;"
+            data-modal-image="assets/STEP6_qrs_rs_wave.png"
+            data-modal-title="rS Wave (Left Bundle Branch Block)"
+            aria-label="Open rS Wave (Left Bundle Branch Block)"
+          ></button>
+
+          <button
+            class="hotspot"
+            style="--x:4.38%; --y:55.07%; --w:88.85%; --h:12.53%; --border-color:#83a9d6; --border-hover:#5f8fc4;"
+            data-modal-image="assets/STEP6_qrs_rsr_wave.png"
+            data-modal-title="rSR′ Wave (Right Bundle Branch Block)"
+            aria-label="Open rSR′ Wave (Right Bundle Branch Block)"
+          ></button>
+
+          <button
+            class="hotspot"
+            style="--x:4.38%; --y:67.60%; --w:88.85%; --h:12.53%; --border-color:#e08a8a; --border-hover:#c06060;"
+            data-modal-image="assets/STEP6_qrs_deep_s_wave.png"
+            data-modal-title="Deep S Wave (Left Ventricular Hypertrophy)"
+            aria-label="Open Deep S Wave (Left Ventricular Hypertrophy)"
+          ></button>
+
+          <button
+            class="hotspot"
+            style="--x:4.38%; --y:80.13%; --w:88.85%; --h:11.20%; --border-color:#83a9d6; --border-hover:#5f8fc4;"
+            data-modal-image="assets/STEP6_qrs_tall_r_wave.png"
+            data-modal-title="Tall R Wave (Right Ventricular Hypertrophy)"
+            aria-label="Open Tall R Wave (Right Ventricular Hypertrophy)"
+          ></button>
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="p-wave">← P Wave</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="st-t">ST &amp; T Wave →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ST ELEVATION -->
+    <section class="page-view flowchart-view" data-view="st-t" data-section="st-t" data-title="ST Elevation" aria-label="ST Elevation" hidden>
+      <div class="chart-stage chart-stage-with-footer chart-stage-with-actions">
+        <div class="chart-top-actions">
+          <button class="footer-secondary is-current" type="button" data-view-target="st-t" aria-current="page">ST Elevation</button>
+          <button class="footer-secondary" type="button" data-view-target="st-depression">ST Depression</button>
+        </div>
+
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP7_st_elevation_hyperacute_t_waves.png" alt="ST elevation and hyperacute T waves" draggable="false" />
+
+          <button
+            class="hotspot"
+            style="--x:9.44%; --y:49.67%; --w:28.31%; --h:32.39%; --border-color:#d59ae0; --border-hover:#b56fc4;"
+            data-modal-image="assets/STEP7_st_elevation_types.png"
+            data-modal-title="Types of ST Elevation (Concave vs Convex)"
+            aria-label="Open Types of ST Elevation (Concave vs Convex)"
+          ></button>
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="qrs">← QRS Complex</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="stemi">STEMI →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ST DEPRESSION -->
+    <section class="page-view flowchart-view" data-view="st-depression" data-section="st-t" data-title="ST Depression" aria-label="ST Depression" hidden>
+      <div class="chart-stage chart-stage-with-footer chart-stage-with-actions">
+        <div class="chart-top-actions">
+          <button class="footer-secondary" type="button" data-view-target="st-t">ST Elevation</button>
+          <button class="footer-secondary is-current" type="button" data-view-target="st-depression" aria-current="page">ST Depression</button>
+        </div>
+
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP7_st_depression_t_inversion.png" alt="ST depression and T wave inversion" draggable="false" />
+
+          <button
+            class="hotspot"
+            style="--x:7.58%; --y:41.45%; --w:29.74%; --h:27.39%; --border-color:#a99ae0; --border-hover:#8570c4;"
+            data-modal-image="assets/STEP7_st_depression_types.png"
+            data-modal-title="Types of ST Depression (Horizontal, Down-sloping, Up-sloping)"
+            aria-label="Open Types of ST Depression (Horizontal, Down-sloping, Up-sloping)"
+          ></button>
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="qrs">← QRS Complex</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+          <button class="footer-secondary" type="button" data-view-target="stemi">STEMI →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCALIZE THE STEMI -->
+    <section class="page-view flowchart-view" data-view="stemi" data-section="stemi" data-title="Localize the STEMI" aria-label="Localize the STEMI" hidden>
+      <div class="chart-stage chart-stage-with-footer chart-stage-with-actions">
+        <div class="chart-top-actions">
+          <button class="popup-button" type="button" data-modal-image="assets/STEP8_posterior_stemi_v1-3.png" data-modal-title="Posterior STEMI: ST Depression in V1–V3">Posterior STEMI (V1–V3)</button>
+        </div>
+
+        <div class="chart-wrap">
+          <img class="flowchart" src="assets/STEP8_1stemi_localization.png" alt="Localize the STEMI by the leads with ST elevation" draggable="false" />
+
+          <button
+            class="hotspot"
+            style="--x:3.58%; --y:71.62%; --w:25.40%; --h:6.77%; --border-color:#e8a0a0; --border-hover:#c97070;"
+            data-modal-image="assets/STEP8_anterior_stemi.png"
+            data-modal-title="Anterior STEMI (V1–V4, LAD)"
+            aria-label="Open Anterior STEMI (V1–V4, LAD)"
+          ></button>
+
+          <button
+            class="hotspot"
+            style="--x:3.58%; --y:78.82%; --w:25.40%; --h:6.77%; --border-color:#e8a0a0; --border-hover:#c97070;"
+            data-modal-image="assets/STEP8_inferior_stemi.png"
+            data-modal-title="Inferior STEMI (II, III, aVF, RCA)"
+            aria-label="Open Inferior STEMI (II, III, aVF, RCA)"
+          ></button>
+
+          <button
+            class="hotspot"
+            style="--x:3.58%; --y:86.03%; --w:25.40%; --h:6.77%; --border-color:#e8a0a0; --border-hover:#c97070;"
+            data-modal-image="assets/STEP8_lateral_stemi.png"
+            data-modal-title="Lateral STEMI (I, aVL, V5–V6, LCX)"
+            aria-label="Open Lateral STEMI (I, aVL, V5–V6, LCX)"
+          ></button>
+
+          <button
+            class="hotspot"
+            style="--x:3.58%; --y:93.23%; --w:25.40%; --h:6.77%; --border-color:#e8a0a0; --border-hover:#c97070;"
+            data-modal-image="assets/STEP8_posterior_stemi_v7-9.png"
+            data-modal-title="Posterior STEMI (V7–V9, PDA)"
+            aria-label="Open Posterior STEMI (V7–V9, PDA)"
+          ></button>
+        </div>
+
+        <div class="chart-footer">
+          <button class="footer-secondary" type="button" data-view-target="st-t">← ST &amp; T Wave</button>
+          <button class="footer-secondary" type="button" data-view-target="steps">All Steps</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal" id="imageModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close popup" data-close-modal>&times;</button>
+      <h2 class="sr-only" id="modalTitle">Reference image</h2>
+      <img class="modal-image" id="modalImage" src="" alt="" />
+    </section>
+  </div>
+
+  <script src="script.js?v=5"></script>
+</body>
+</html>
