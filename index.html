@@ -107,7 +107,7 @@
 
           <button class="category-card home-search-card" type="button" data-view-target="search">
             <strong>Search ECG Morphologies</strong>
-            <span>Search for a specific morphology (e.g., Torsades) to see the corresponding ECG features; acronyms should work (e.g., tdp)</span>
+            <span>Search for specific morphology (e.g., Torsades) to see the corresponding ECG features</span>
           </button>
         </div>
       </div>
@@ -276,6 +276,10 @@
             <strong>Tachycardia</strong>
             <span>Heart rate &gt; 100 bpm: narrow and wide complex tachycardias</span>
           </button>
+          <button class="flowchart-card" type="button" data-modal-image="assets/premature-ventricular-contraction-bigeminy-trigeminy.jpg" data-modal-title="Premature Ventricular Contractions (PVCs)">
+            <strong>PVCs</strong>
+            <span>Premature ventricular contractions: bigeminy and trigeminy</span>
+          </button>
         </div>
 
         <div class="chart-footer menu-footer">
@@ -318,6 +322,14 @@
 
         <div class="chart-wrap">
           <img class="flowchart" src="assets/STEP2_tachycardia_MAIN.png" alt="Approach to tachycardic rhythm" draggable="false" />
+
+          <button
+            class="hotspot"
+            style="--x:42.80%; --y:44.90%; --w:23.20%; --h:5.40%; --border-color:#e6b980; --border-hover:#c9954f;"
+            data-modal-image="assets/avrt-avnrt.png"
+            data-modal-title="PSVT: AVRT vs AVNRT"
+            aria-label="Open PSVT: AVRT vs AVNRT"
+          ></button>
 
           <button
             class="hotspot"
@@ -673,6 +685,6 @@
     </section>
   </div>
 
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>

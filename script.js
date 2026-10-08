@@ -45,6 +45,18 @@ const SEARCH_INDEX = [
     keywords: "wide complex tachycardia ventricular tachycardia vt vtach monomorphic polymorphic torsades de pointes tdp pmvt ventricular fibrillation vf vfib"
   },
   {
+    image: "assets/avrt-avnrt.png",
+    title: "PSVT: AVRT vs AVNRT",
+    view: "rhythm-tachy", step: "Rhythm",
+    keywords: "psvt svt paroxysmal supraventricular tachycardia avrt avnrt orthodromic accessory pathway wpw wolff parkinson white delta wave av node reentry slow fast pathway pseudo r pseudo s retrograde p narrow regular"
+  },
+  {
+    image: "assets/premature-ventricular-contraction-bigeminy-trigeminy.jpg",
+    title: "Premature Ventricular Contractions (PVCs)",
+    view: "rhythm", step: "Rhythm",
+    keywords: "pvc pvcs premature ventricular contraction complex ectopic ectopy extrasystole ventricular bigeminy trigeminy wide qrs"
+  },
+  {
     image: "assets/STEP3_left_axis_deviation.png",
     title: "Left Axis Deviation",
     view: "axis-left", step: "Axis",
