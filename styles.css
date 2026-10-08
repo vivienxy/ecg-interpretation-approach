@@ -823,7 +823,7 @@ button:focus-visible {
   padding-bottom: 10px;
   border-bottom: 1px solid var(--line);
   border-radius: 4px 4px 0 0;
-  color: #0b5394;
+  color: #990000;
   font-weight: 600;
 }
 
@@ -1092,3 +1092,58 @@ button:focus-visible {
 /* Home buttons: tighter padding so the whole page fits without scrolling */
 .landing-shell .category-card { padding: 11px 18px; }
 .step-link-list .step-link { padding: 6px 12px; }
+
+/* Home buttons, design C: a round "Start →" / "Search →" button inside each card,
+   and white step options with a shadow and › chevron, so it's clear what is clickable */
+.landing-shell .steps-card,
+.landing-shell .home-search-card {
+  position: relative;
+  padding-right: 130px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.steps-card::after,
+.home-search-card::after {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 7px 14px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.steps-card::after { content: "Start →"; background: #0b5394; }
+.home-search-card::after { content: "Search →"; background: #38761d; }
+.steps-card:hover::after { background: #073763; }
+.home-search-card:hover::after { background: #274e13; }
+
+.step-link-list,
+.step-link-list:hover { background: #f8eef3; }
+.step-link-list .step-link {
+  position: relative;
+  padding-right: 26px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(116, 27, 71, 0.18);
+}
+.step-link-list .step-link::after {
+  content: "›";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-55%);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.step-link-list .step-link:hover {
+  background: #f6dfeb;
+  box-shadow: 0 3px 8px rgba(116, 27, 71, 0.28);
+}
+
+/* Phones: put the Start / Search button under the text instead of beside it */
+@media (max-width: 600px) {
+  .landing-shell .steps-card,
+  .landing-shell .home-search-card { padding-right: 18px; }
+  .steps-card::after,
+  .home-search-card::after { position: static; transform: none; margin-top: 6px; }
+}
