@@ -27,6 +27,18 @@ const SEARCH_INDEX = [
     keywords: "bradycardia bradyarrhythmia slow sinus bradycardia heart block av block first degree 1st degree second degree 2nd degree mobitz i mobitz 1 wenckebach mobitz ii mobitz 2 third degree 3rd degree complete heart block av dissociation dropped qrs prolonged pr"
   },
   {
+    image: "assets/junctional-escape.png",
+    title: "Junctional Escape Rhythm",
+    view: "rhythm-brady", step: "Rhythm",
+    keywords: "junctional escape rhythm av junction nodal bradycardia inverted p retrograde p short pr narrow qrs 40-60 sick sinus syndrome"
+  },
+  {
+    image: "assets/ventricular-escape.png",
+    title: "Ventricular Escape (Idioventricular) Rhythm",
+    view: "rhythm-brady", step: "Rhythm",
+    keywords: "ventricular escape rhythm idioventricular rhythm ivr wide qrs no p waves 20-40 bradycardia complete heart block pacing"
+  },
+  {
     image: "assets/STEP2_tachycardia_MAIN.png",
     title: "Approach to Tachycardic Rhythm",
     view: "rhythm-tachy", step: "Rhythm",

@@ -1147,3 +1147,45 @@ button:focus-visible {
   .steps-card::after,
   .home-search-card::after { position: static; transform: none; margin-top: 6px; }
 }
+
+/* Bradycardia page: "Escape rhythms" popup buttons under the chart */
+.chart-extras {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #0b5394;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.extra-link {
+  padding: 5px 26px 5px 12px;
+  position: relative;
+  border: 1px solid #6fa8dc;
+  border-radius: 999px;
+  background: #fff;
+  color: #0b5394;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(11, 83, 148, 0.18);
+}
+.extra-link::after {
+  content: "›";
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  transform: translateY(-55%);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.extra-link:hover { background: #cfe2f3; border-color: #0b5394; }
+.page-view[data-view="rhythm-brady"] .flowchart {
+  max-height: calc(100svh - var(--topbar-height) - 164px);
+}
+@media (max-width: 760px) {
+  .page-view[data-view="rhythm-brady"] .flowchart {
+    max-height: calc(100svh - var(--topbar-height) - 234px);
+  }
+}
